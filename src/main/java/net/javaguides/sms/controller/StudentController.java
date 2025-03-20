@@ -2,13 +2,9 @@ package net.javaguides.sms.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import net.javaguides.sms.entity.Student;
-import net.javaguides.sms.repository.StudentRepository;
 import net.javaguides.sms.service.StudentService;
 
 @Controller
@@ -70,5 +66,17 @@ public class StudentController {
 	public String deleteStudent(@PathVariable Long id) {
 		studentService.deleteStudentById(id);
 		return "redirect:/students";
+	}
+
+	@GetMapping("/login")
+	@ResponseBody
+	public String checkLogin(){
+		return "Its working fine this route!!";
+	}
+
+	@GetMapping("/")
+	@ResponseBody
+	public String home(){
+		return ("<h1>Welcome</h1>");
 	}
 }
